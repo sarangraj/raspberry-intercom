@@ -1,0 +1,25 @@
+extends ../node_modules/pug-bootstrap/_bootstrap
+append styles
+  +bootswatch('darkly')
+  link(rel="stylesheet",href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" )
+  link(rel="stylesheet",href="/stylesheets/style.css")
+  block body
+  include includes/nav.pug
+  .container-fluid
+        .row
+            .col-sm-3.col-md-2.sidebar
+                ul.nav.nav-sidebar
+                    li: a(href= '/register') Add User 
+                      i.fa.fa-user-plus(aria-hidden='true')
+                    //- li: a(href= '/profile') Edit User 
+                    //-   i.fa.fa-pencil-square-o(aria-hidden='true')
+                    li: a(href='/user') Phonebook 
+                      i.fa.fa-address-book(aria-hidden='true')
+                    li: a(href= '/IVR') IVR 
+                      i.fa.fa-life-ring(aria-hidden='true')
+                    li: a(href= '/UCP') UCP 
+                      i.fa.fa-users(aria-hidden='true')
+                    
+            .col-sm-9.col-sm-offset-3.col-md-10.col-md-offset-2.main    
+              block content
+  include includes/foot.pug

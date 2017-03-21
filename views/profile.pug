@@ -1,0 +1,28 @@
+extends layout
+block content
+    h1.page-header Users
+        h2.sub-header
+        .table-responsive 
+            table.table.table-bordered
+                thead
+                    tr
+                        th.info User Name
+                        th.info Extention No
+                        th.info Password                       
+                        th.info Branch
+                        th.info Designation
+                        th.info(colspan ='2')
+                tbody
+                each user in rows
+                    tr.success
+                        td= user.username
+                        td= user.extention                        
+                        td= user.password
+                        td= user.branch
+                        td= user.designation
+                        td.text-center
+                            a(href= '/user/'+ user.idusers)
+                                i.fa.fa-pencil-square-o(aria-hidden='true')  Edit 
+                        td.text-center                             
+                            a(href= '/user/delete/'+ user.idusers)
+                                i.fa.fa-times(aria-hidden='true')  Delete

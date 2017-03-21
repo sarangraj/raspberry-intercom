@@ -1,0 +1,28 @@
+extends layout
+block content
+    h1.page-header Users
+        h2.sub-header
+        .table-responsive 
+            table.table.table-bordered
+                thead
+                    tr
+                        th.info User Name
+                        th.info Extention No
+                        th.info Password                       
+                        th.info Voicemail
+                        th.info SIP Name
+                        th.info Recording
+                        th.info
+                tbody
+                each user in rows
+                    tr.success
+                        td= user.name
+                        td= user.extension                        
+                        td= user.password
+                        td= user.voicemail
+                        td= user.sipname
+                        td= user.recording
+                        td.text-center
+                            a(href= '/user/update/'+ user.extension)
+                                i.fa.fa-pencil-square-o(aria-hidden='true')  Edit                          
+

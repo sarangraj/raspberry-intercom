@@ -1,0 +1,26 @@
+extends layout
+block content
+    h1.page-header Users
+        h2.sub-header
+        .table-responsive 
+            table.table
+                thead
+                    tr
+                        th.info Extension
+                        th.info User Name                        
+                        // th.info Branch
+                        // th.info Designation
+                        th.info(colspan ='2')
+                tbody
+                each user in rows
+                    tr.success
+                        td= user.extension                                                
+                        td= user.name
+                        // td= user.branch
+                        // td= user.designation
+                        td.text-center
+                            a(href= '/user/'+ user.extension)
+                                i.fa.fa-pencil-square-o(aria-hidden='true')  Edit 
+                        td.text-center                             
+                            a(href= '/user/delete/'+ user.extension)
+                                i.fa.fa-times(aria-hidden='true')  Delete

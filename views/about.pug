@@ -1,0 +1,11 @@
+extends layout
+block content
+    h1.page-header About
+        h2.sub-header
+        .table-responsive 
+            table.table.table-bordered
+                tbody
+                each user in rows
+                    tr
+                        td.info.col-md-2= user.variable                                                
+                        td.success.col-md-10= user.value

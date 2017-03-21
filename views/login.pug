@@ -1,0 +1,28 @@
+extends ../node_modules/pug-bootstrap/_bootstrap
+append styles
+  +bootswatch('darkly')
+  link(rel="stylesheet",href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" )
+  link(rel="stylesheet",href="/stylesheets/style.css")    
+block body
+    div.container
+        div.col-md-offset-4.col-lg-4
+            div.panel.panel-primary.login-panel
+                div.panel-heading
+                    h1.panel-title.text-center Login panel
+                div.panel-body        
+                    form.form-horizontal(action="/login", method="POST")
+                        div.form-group.col-md-12
+                            label Username 
+                                i.fa.fa-user(aria-hidden='true') 
+                            input.form-control(id="username", type="text", name="User", placeholder="Enter your username")
+                        div.form-group.col-md-12
+                            label Password 
+                                i.fa.fa-lock(aria-hidden='true')                            
+                            input.form-control(id="password", type="password", name="Password")
+                        input.btn.btn-success.col-sm-4(type='submit', value="Log In")
+                        input.btn.btn-warning.col-sm-offset-1.col-sm-6(type="button", value="Reset Password")
+                        div.clearfix.form-group.col-md-12
+                            if error
+                                br                                                      
+                                .alert.alert-danger.alert-dismissable!= error
+                                    a.close(href='#', data-dismiss='alert', aria-label='close') &times;

@@ -42,7 +42,7 @@ exports.user_create_post = function (req, res, next) {
     if (sess.User) {
         req.checkBody('name', 'Username is Required.').notEmpty();
         req.checkBody('name', 'Username should contains only Alpanumeric words.').isAlpha();
-        req.checkBody('extension', 'Extention is required.').notEmpty();
+        req.checkBody('extension', 'Extension is required.').notEmpty();
         req.checkBody('secret', 'Password is required').optional({
             checkFalsy: true
         }).notEmpty();
@@ -51,9 +51,7 @@ exports.user_create_post = function (req, res, next) {
         req.sanitize('secret').escape();
         req.sanitize('name').trim();
         req.sanitize('secret').trim();
-
         var errors = req.validationErrors();
-
         var user = {
             name: req.body.name,
             extension: req.body.extension,

@@ -1,4 +1,4 @@
-// var auth = require('../lib/auth');
+var auth = require('../lib/auth');
 var db = require('../database');
 var async = require('async');
 module.exports = {
@@ -28,7 +28,7 @@ module.exports = {
     //   },
     show: function (req, res, next) {
         var sql = 'SELECT * from users';
-        var data = 'Selection';
+        var data = '';
         db.exec(sql, data, function (err, results) {
             if (err) {
                 // If unexpected error then send 500
@@ -39,7 +39,7 @@ module.exports = {
         });
     },
     save: function (req, res, user) {
-        // var hashed_password = auth.saltHashPassword(user.password);  
+        var hashed_password = auth.saltHashPassword(user.password);  
         var sql = 'INSERT INTO users SET ?';
         var sql1 = 'INSERT INTO sip SET ?';
         var sip = {
@@ -50,9 +50,10 @@ module.exports = {
         }
         var User = {
             extension: user.extension,
-            password: user.password,
+            password: hashed_password,
             name: user.name
         }
+        console.log(User.password);
         async.parallel([
             function (callback) {
             db.exec(sql, User, function (err, results){

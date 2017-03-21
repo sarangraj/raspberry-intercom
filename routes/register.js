@@ -17,21 +17,4 @@ else {
   res.render('login', { title: 'Login Panel' });
 }
 });
-router.post('/', function(req, res, next){
-  sess = req.session.User;
-  if(sess) {
-      req.checkBody({
-        'name':{
-        notEmpty: true,          
-        },
-        'secret': {
-        notEmpty: true,
-        },
-      });
-     res.end(JSON.stringify(req.body, null, 2));    
-}
-else {
-    res.redirect('/');
-}
-});
 module.exports = router;

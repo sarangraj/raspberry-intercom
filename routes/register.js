@@ -11,10 +11,10 @@ router.get('/', function(req, res, next) {
 * This line check Session existence.
 * If it existed will do some action.
 */
-  res.render('register', { title: 'Register' });    
+  res.render('register', { title: 'Create User' });    
 }
 else {
-  res.render('login', { title: 'Login Panel' });
+  res.redirect('');
 }
 });
 module.exports = router;

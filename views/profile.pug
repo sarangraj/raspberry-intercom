@@ -1,28 +1,37 @@
 extends layout
 block content
-    h1.page-header Users
-        h2.sub-header
-        .table-responsive 
-            table.table.table-bordered
-                thead
-                    tr
-                        th.info User Name
-                        th.info Extention No
-                        th.info Password                       
-                        th.info Branch
-                        th.info Designation
-                        th.info(colspan ='2')
-                tbody
-                each user in rows
-                    tr.success
-                        td= user.username
-                        td= user.extention                        
-                        td= user.password
-                        td= user.branch
-                        td= user.designation
-                        td.text-center
-                            a(href= '/user/'+ user.idusers)
-                                i.fa.fa-pencil-square-o(aria-hidden='true')  Edit 
-                        td.text-center                             
-                            a(href= '/user/delete/'+ user.idusers)
-                                i.fa.fa-times(aria-hidden='true')  Delete
+    h1.page-header Edit User 
+    div.col-md-8
+        form.form-horizontal(action="/user/create", method="POST")
+            fieldset
+            each user in rows
+                .form-group
+                label.col-lg-4.control-label(for='inputEmail') Username 
+                    i.fa.fa-user(aria-hidden='true')                
+                .col-lg-8
+                    input#inputEmail.form-control(type='text', name='name', value=user.name)
+                .form-group
+                label.col-lg-4.control-label(for='inputExtention') Extension No 
+                    i.fa.fa-tty(aria-hidden='true') 
+                .col-lg-8
+                    input#inputExtention.form-control(type='number', name='extension', value=user.extension)
+                .form-group
+                label.col-lg-4.control-label(for='inputPassword') Password 
+                 i.fa.fa-lock(aria-hidden='true')                                                    
+                .col-lg-8
+                    input#inputPassword.form-control(type='password', name='secret', value=user.password)
+                .col-lg-8.col-lg-offset-4
+                    .checkbox
+                    label
+                        input(type='checkbox' name='confirm')
+                        |  Confirm
+                .form-group
+                .col-lg-8.col-lg-offset-4
+                    button.btn.btn-primary.col-sm-5(type='submit') Submit
+                    button.btn.btn-warning.col-sm-offset-2.col-sm-5(type='reset') Reset
+                .col-lg-10.col-lg-offset-2
+                    if errors
+                        br 
+                        ul
+                            for error in errors
+                                li.text-danger!= error.msg

@@ -1,19 +1,11 @@
 var express = require('express');
 var router = express.Router();
-var sess;
+var login_controller = require('../../controllers/login');
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  sess = req.session;
-  if(sess.Admin) {
-/*
-* This line check Session existence.
-* If it existed will do some action.
-*/
-  res.render('user/index', { title: 'Dashboard' });    
-}
-else {
-  res.render('user/login', { title: 'UCP' });
-}
+  res.render('UCP/login', { title: 'User Control Panel'});
 });
+router.post('/', login_controller.authenticate);
 
 module.exports = router;
+

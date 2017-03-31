@@ -9,7 +9,7 @@ module.exports = {
             if (err) {} else {
                 var json_result = JSON.stringify(results);
                 res.render('user', {
-                    title: 'User',
+                    title: 'Users',
                     rows: results
                 });
             }

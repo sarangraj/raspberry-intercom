@@ -15,7 +15,7 @@ module.exports =
             {
                 if (err) 
                 {
-                        res.render('login', { title: 'login', error: 'Invalid Username or Password' });
+                        res.render('login', { title: 'Login Panel', error: 'Invalid Username or Password' });
                 } 
                 else 
                 {
@@ -28,12 +28,12 @@ module.exports =
                         }
                         else 
                         {
-                        res.render('login', { title: 'login', error: 'Invalid Username or Password' });
+                        res.render('login', { title: 'Login Panel', error: 'Invalid Username or Password' });
                         }
                     }
                     else 
                     {
-                        res.render('login', { title: 'login', error: 'Invalid Username or Password' });
+                        res.render('login', { title: 'Login Panel', error: 'Invalid Username or Password' });
                     }
                 }
         });

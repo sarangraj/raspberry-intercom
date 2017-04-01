@@ -9,20 +9,19 @@ block body
             div.panel.panel-primary.login-panel
                 div.panel-heading
                     h1.panel-title.text-center User Control Panel
-                div.panel-body        
-                    form.form-horizontal(action="/UCP/login", method="POST")
-                        div.form-group.col-md-12
+                div.panel-body
+                    form.form-horizontal.col-md-12(action="/ucp", method="POST")
+                        div.form-group
                             label Username 
                                 i.fa.fa-user(aria-hidden='true') 
-                            input.form-control(id="username", type="number", name="User", placeholder="Enter your Extention")
-                        div.form-group.col-md-12
+                            input.form-control(id="username", type="number", name="User", placeholder="Enter Your Extension")
+                        div.form-group
                             label Password 
                                 i.fa.fa-lock(aria-hidden='true')                            
-                            input.form-control(id="password", type="password", name="Password", placeholder="Enter your Password")
-                        input.btn.btn-success.col-sm-4(type='submit', value="Log In")
-                        input.btn.btn-warning.col-sm-offset-1.col-sm-6(type="button", value="Reset Password")
-                        div.clearfix.form-group.col-md-12
-                            if error
-                                br                                                      
-                                .alert.alert-danger.alert-dismissable!= error
-                                    a.close(href='#', data-dismiss='alert', aria-label='close') &times;
+                            input.form-control(id="password", type="password", name="Password", placeholder="Enter Your Password")
+                        div.form-group                        
+                            input.btn.btn-success.col-sm-5(type='submit', value="Log In")
+                            input.btn.btn-warning.col-sm-offset-2.col-sm-5(type="button", value="Reset Password")
+                        if error                        
+                            .alert.alert-danger.alert-dismissable!= error
+                                a.close(href='#', data-dismiss='alert', aria-label='close') &times;

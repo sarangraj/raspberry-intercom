@@ -1,6 +1,6 @@
 extends ../node_modules/pug-bootstrap/_bootstrap
 append styles
-  +bootswatch('darkly')
+  //- +bootswatch('darkly')
   link(rel="stylesheet",href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" )
   link(rel="stylesheet",href="/bootstrap/css/bootstrap.min.css")  
   link(rel="stylesheet",href="/stylesheets/style.css")
@@ -23,3 +23,8 @@ append styles
             .col-sm-9.col-sm-offset-3.col-md-10.col-md-offset-2.main    
               block content
   include includes/foot.pug
+prepend scripts
+    script(src="/javascripts/jquery.min.js")
+    script(src="/bootstrap/js/bootstrap.min.js")
+  
+

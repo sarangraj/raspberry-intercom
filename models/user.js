@@ -160,14 +160,18 @@ module.exports = {
         var extension_id = req.params.id;
         var users_sql = 'SELECT * FROM users WHERE extension=?';
         db.exec(users_sql, extension_id, function (err, results) {
-            if( err ){
-                    res.status(500);
+            if (err) {
+                res.status(500);
+            } else {
+                console.log(results);
+                if (results[0] == null) {
+                    res.send("No User Found");
                 } else {
-                //console.log(results);
-                res.render('profile', {
-                    title: 'User Dashboard',
-                    rows: results
-                });
+                    res.render('profile', {
+                        title: 'User Dashboard',
+                        rows: results
+                    });
+                }
             }
         });
     }

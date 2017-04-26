@@ -4,7 +4,7 @@ var async = require('async');
 var sess;
 module.exports = 
     {
-        authorise: function (req, res, next) 
+        authorize: function (req, res, next) 
         {
             var hashed_password = auth.saltHashPassword(req.body.Password);
             var sql = 'SELECT * FROM ampusers WHERE username=? LIMIT 1';
@@ -38,7 +38,7 @@ module.exports =
                 }
         });
     },
-    authorise_user: function (req, res, next) 
+    authorize_user: function (req, res, next) 
         {
             var hashed_password = auth.saltHashPassword(req.body.Password);
             var sql = 'SELECT * FROM users WHERE extension=? LIMIT 1';

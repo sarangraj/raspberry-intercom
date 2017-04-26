@@ -7,8 +7,8 @@ var expressValidator = require('express-validator');
 var cookieSession = require('cookie-session');
 var sess;
 
-var about = require('./routes/about');
-var contact = require('./routes/contact');
+var about = require('./routes/index');
+var contact = require('./routes/index');
 var index = require('./routes/index');
 var login = require('./routes/login');
 var logout = require('./routes/logout');
@@ -22,7 +22,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
 // uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));

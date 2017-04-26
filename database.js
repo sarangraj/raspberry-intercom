@@ -3,8 +3,8 @@ var mysql = require('mysql');
 var pool = mysql.createPool({
 	host: 'localhost',
 	user: 'root',
-	password: 'raspberry',
-	database: 'asterisk',
+	password: '',
+	database: '',
 	connectionLimit: 500,
 	supportBigNumbers: true,
 	multipleStatements: true

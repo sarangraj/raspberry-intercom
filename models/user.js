@@ -156,6 +156,20 @@ module.exports = {
             }
         });
     },
+    user_register: function (req, res, next) {
+        sess = req.session.User;
+        if (sess) {
+            /*
+             * This line check Session existence.
+             * If it existed will do some action.
+             */
+            res.render('register', {
+                title: 'Create User'
+            });
+        } else {
+            res.redirect('');
+        }
+    },
     user_display: function (req, res) {
         var extension_id = req.params.id;
         var users_sql = 'SELECT * FROM users WHERE extension=?';
@@ -163,7 +177,7 @@ module.exports = {
             if (err) {
                 res.status(500);
             } else {
-                console.log(results);
+               // console.log(results);
                 if (results[0] == null) {
                     res.send("No User Found");
                 } else {

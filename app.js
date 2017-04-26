@@ -12,7 +12,6 @@ var contact = require('./routes/index');
 var index = require('./routes/index');
 var login = require('./routes/login');
 var logout = require('./routes/logout');
-var register = require('./routes/register');
 var user = require('./routes/user');
 var ucp = require('./routes/user/index');
 var app = express();
@@ -43,7 +42,6 @@ app.use('/about', about);
 app.use('/contact', contact);
 app.use('/login', login);
 app.use('/logout', logout);
-app.use('/register', register);
 app.use('/user', user);
 app.use('/ucp', ucp);
 // app.get('*', function(req, res, next){
